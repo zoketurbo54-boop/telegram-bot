@@ -1,0 +1,5 @@
+aiogram==3.15.0
+python-dotenv==1.0.1
+Flask==3.0.3
+PyNaCl==1.5.0
+base58==2.1.1

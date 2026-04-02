@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Piska Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  </head>
+  <body>
+    <main class="app">
+      <section id="auth-screen" class="screen active">
+        <div class="logo-wrap">
+          <img class="logo-image" src="{{ url_for('static', filename='img/logo.png') }}" alt="My Piska logo" />
+        </div>
+        <h1>Крипто фармилка</h1>
+        <p class="lead">
+          Подключи кошелек Phantom, чтобы войти в мини-игру.
+        </p>
+        <button id="connect-btn" class="primary-btn">Подключить Phantom</button>
+        <button id="dev-login-btn" class="secondary-btn">Войти без Phantom (тест)</button>
+        <p id="auth-status" class="status"></p>
+      </section>
+
+      <section id="menu-screen" class="screen">
+        <div class="topbar">
+          <img class="logo-image small" src="{{ url_for('static', filename='img/logo.png') }}" alt="My Piska logo" />
+          <button id="disconnect-btn" class="ghost-btn">Отключить</button>
+        </div>
+
+        <div class="player-card">
+          <div class="alien">👽</div>
+          <div>
+            <h2>Добро пожаловать</h2>
+            <p id="wallet-short"></p>
+          </div>
+        </div>
+
+        <div class="stats-card">
+          <p id="points-line">XP за уход: 0</p>
+          <p id="rate-line">Пассивный доход: 10 XP/час</p>
+          <p id="token-line">MGPT: 0</p>
+          <p id="stats-line">Статы: mood 0 | hunger 0 | hygiene 0 | energy 0</p>
+        </div>
+
+        <div class="menu-grid">
+          <button class="menu-item purple" data-action="fun" title="Развлечь">😟</button>
+          <button class="menu-item orange" data-action="feed" title="Покормить">🍽️</button>
+          <button class="menu-item green" data-action="toilet" title="Туалет">🚽</button>
+          <button class="menu-item lime" data-action="sleep" title="Сон">🌙</button>
+        </div>
+        <div class="rewards-bar">
+          <span>😟 +4 XP</span>
+          <span>🍽️ +3 XP</span>
+          <span>🚽 +2 XP</span>
+          <span>🌙 +3 XP</span>
+        </div>
+
+        <div class="shop-card">
+          <h3>Аксессуары</h3>
+          <div id="accessory-list" class="accessory-list"></div>
+        </div>
+
+        <div class="case-card">
+          <button id="open-case-btn" class="primary-btn case-btn">Купить кейс за 20 000 XP</button>
+          <p id="case-preview" class="case-preview">
+            Награды: x3 XP, 10k XP, 20k XP, 40k XP, 0.1 MGPT, 0.3 MGPT
+          </p>
+          <p id="case-result" class="hint"></p>
+        </div>
+
+        <p id="game-status" class="hint">
+          XP за уход начисляется только за действия: развлечь, покормить, туалет, сон.
+        </p>
+      </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  </body>
+</html>
