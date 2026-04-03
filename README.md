@@ -1,4 +1,4 @@
-# My Piska Game MVP
+# PGU crypto game
 
 Проект для PGU: Telegram crypto game (mini app + бот).
 
