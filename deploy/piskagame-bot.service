@@ -1,0 +1,16 @@
+[Unit]
+Description=MyPiskaGame Telegram bot (long polling)
+After=network.target
+
+[Service]
+Type=simple
+User=piskagame
+Group=piskagame
+WorkingDirectory=/opt/mypiskagame
+EnvironmentFile=/opt/mypiskagame/.env
+ExecStart=/opt/mypiskagame/.venv/bin/python bot.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

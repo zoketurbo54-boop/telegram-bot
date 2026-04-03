@@ -694,4 +694,5 @@ init_db()
 if __name__ == "__main__":
     host = os.getenv("WEBAPP_HOST", "0.0.0.0")
     port = int(os.getenv("WEBAPP_PORT", "8080"))
-    app.run(host=host, port=port, debug=True)
+    debug = os.getenv("FLASK_DEBUG", "0").lower() in ("1", "true", "yes")
+    app.run(host=host, port=port, debug=debug)
